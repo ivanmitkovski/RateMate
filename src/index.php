@@ -188,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit-vote'])) {
             <?php
             $mvp = $vote->getAllTimeBestColleague();
             ?>
-            <p class="mvp-text" id="mvp-text"><?php isset($mrp['full_name']) ? $mvp['full_name'] . " - " . $mvp['job_title'] . " " . round($mvp['average_rating'], 1) : 'No votes yet' ?></p>
+            <p class="mvp-text" id="mvp-text"><?php echo is_null($mvp) ?  '🏆No votes yet'  :  $mvp['full_name'] . " - " . $mvp['job_title'] . " " . round($mvp['average_rating'], 1) ?></p>
             <button class="generate-btn" id="generate-mvp-btn">Generate Certificate🏆</button>
         </div>
     </section>
