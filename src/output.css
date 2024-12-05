@@ -630,6 +630,10 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .h-16 {
   height: 4rem;
 }
