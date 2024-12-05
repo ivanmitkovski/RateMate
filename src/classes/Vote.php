@@ -17,7 +17,6 @@ class Vote
         $this->conn = $db;
     }
 
-    // Setters for vote attributes
     public function setVoter($voter_id)
     {
         $this->voter = $voter_id;
@@ -30,7 +29,7 @@ class Vote
 
     public function setRating($rating)
     {
-        // Ensure rating is between 1 and 5
+
         if ($rating < 1 || $rating > 5) {
             throw new Exception('Rating must be between 1 and 5.');
         }
@@ -47,7 +46,6 @@ class Vote
         $this->category = $category_id;
     }
 
-    // Set timestamp (optional; default will be handled by SQL)
     public function setTimestamp($timestamp = null)
     {
         if ($timestamp === null) {
@@ -57,28 +55,23 @@ class Vote
         }
     }
 
-    // Submit vote to the database
     public function submitVote()
     {
-        // Check if voter and nominee are the same, prevent self-voting
         if ($this->voter == $this->nominee) {
             throw new Exception('You cannot vote for yourself.');
         }
 
-        // Ensure comment is provided (required field)
+
         if (empty($this->comment)) {
             throw new Exception('Please provide a comment.');
         }
 
-        // Set the timestamp (although the database will handle this automatically)
         $this->setTimestamp();
 
-        // Prepare SQL query to insert the vote into the database
         $query = 'INSERT INTO ' . $this->table . ' (voter, nominee, rating, comment, category, timestamp) 
                   VALUES (:voter, :nominee, :rating, :comment, :category,:timestamp)';
         $stmt = $this->conn->prepare($query);
 
-        // Bind parameters
         $stmt->bindParam(':voter', $this->voter);
         $stmt->bindParam(':nominee', $this->nominee);
         $stmt->bindParam(':rating', $this->rating);
@@ -86,14 +79,12 @@ class Vote
         $stmt->bindParam(':category', $this->category);
         $stmt->bindParam(':timestamp', $this->timestamp);
 
-        // Execute query and return result
         if ($stmt->execute()) {
             return true;
         }
         return false;
     }
 
-    // Get the results of all votes
     public function getVoteResults()
     {
         $query = 'SELECT category, nominee, AVG(rating) as average_rating, COUNT(*) as vote_count 
@@ -105,7 +96,6 @@ class Vote
         return $stmt;
     }
 
-    // Get winners for a specific category
     public function getCategoryWinners($category)
     {
         $query = "SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name, e.job_title, AVG(v.rating) as average_rating 
@@ -121,7 +111,6 @@ class Vote
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Get top voters (voters who voted the most)
     public function getTopVoters()
     {
         $query = 'SELECT voter, COUNT(*) as vote_count, CONCAT(e.first_name, " ", e.last_name) AS full_name
@@ -135,7 +124,6 @@ class Vote
         return $stmt;
     }
 
-    // Get all categories
     public function getCategories()
     {
         $query = 'SELECT * FROM ' . $this->categoriesTable;
@@ -144,7 +132,6 @@ class Vote
         return $stmt;
     }
 
-    // Get all employees
     public function getEmployees()
     {
         $query = 'SELECT employee_id, CONCAT(first_name, " ", last_name) AS full_name 
@@ -154,7 +141,6 @@ class Vote
         return $stmt;
     }
 
-    // Get the all-time best colleague (highest average rating)
     public function getAllTimeBestColleague()
     {
         $query = 'SELECT nominee, CONCAT(e.first_name, " ", e.last_name) AS full_name, 
