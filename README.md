@@ -24,6 +24,5 @@
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/ivanmitkovski/RateMate.git
-
-2. **Open readme folder to get the setup MySQL Queries and review the Database Design**
    cd RateMate
+2. **Open readme folder to get the setup MySQL Queries and review the Database Design**
