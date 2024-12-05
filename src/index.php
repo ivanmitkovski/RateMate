@@ -33,6 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit-vote'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RateMate</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js" defer></script>
     <link rel="icon" type="image/x-icon" href="../imgs/star-icon.png">
     <link href="./styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -185,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit-vote'])) {
             <?php
             $mvp = $vote->getAllTimeBestColleague();
             ?>
-            <p class="mvp-text" id="mvp-text"><?= $mvp['full_name'] . " - " . $mvp['job_title'] . " " . round($mvp['average_rating'], 1) ?></p>
+            <p class="mvp-text" id="mvp-text"><?php isset($mrp['full_name']) ? $mvp['full_name'] . " - " . $mvp['job_title'] . " " . round($mvp['average_rating'], 1) : 'No votes yet' ?></p>
             <button class="generate-btn" id="generate-mvp-btn">Generate Certificate🏆</button>
         </div>
     </section>
