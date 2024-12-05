@@ -13,8 +13,8 @@
 - Employees can vote for their peers in multiple categories.
 - Every vote includes a comment, and employees cannot vote for themselves.
 - Tracks votes and calculates winners for each category.
-- Displays results and identifies the most active voters.
-- Generates certificates for the winners (bonus feature).
+- Displays results and identifies the TOP 3 active voters.
+- Generates certificates for the winners.
 - Built with **PHP OOP**, **JavaScript (jQuery)**, and a **MySQL** database.
 
 ## Installation
