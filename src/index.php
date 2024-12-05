@@ -19,16 +19,13 @@
     </nav>
 
     <section class="form-section" id="form-section">
-        <form action="" method="" id="vote-form">
+        <form action="POST" id="vote-form">
             <div class="form-container" id="form-container">
                 <div id="vote-as" class="form-card">
                     <h3 class="form-title" id="vote-as-title">Vote As👨‍💻</h3>
                     <label for="voter" class="input-label" id="voter-label">Choose Employee*</label>
                     <select name="voter" id="voter" class="input-field">
-                        <option value="">Alice Burton - Software Engineer</option>
-                        <option value="">John Doe - QA Tester</option>
-                        <option value="">Jack Smith - Python Developer</option>
-                        <option value="">Bob Willson - Software Engineer</option>
+                        <option value=""></option>
                     </select>
                     <label for="rating" class="input-label" id="rating-label">Give a Rating from <b>1</b> to <b>5</b>*</label>
                     <input type="number" name="rating" id="rating" min="1" max="5" class="input-field">
@@ -40,17 +37,11 @@
                     <h3 class="form-title" id="vote-for-title">Vote For 👩‍💻</h3>
                     <label for="nominee" class="input-label" id="nominee-label">Choose Employee*</label>
                     <select name="nominee" id="nominee" class="input-field">
-                        <option value="">Alice Burton - Software Engineer</option>
-                        <option value="">John Doe - QA Tester</option>
-                        <option value="">Jack Smith - Python Developer</option>
-                        <option value="">Bob Willson - Software Engineer</option>
+                        <option value=""></option>
                     </select>
                     <label for="category" class="input-label" id="category-label">Choose Category*</label>
                     <select name="category" id="category" class="input-field">
-                        <option value="">Category 1</option>
-                        <option value="">Category 2</option>
-                        <option value="">Category 3</option>
-                        <option value="">Category 4</option>
+                        <option value=""></option>
                     </select>
                 </div>
             </div>
@@ -66,8 +57,8 @@
             <!-- "Makes Work Fun" Card -->
             <div id="makes-work-fun" class="result-card">
                 <h3 class="result-title" id="makes-work-fun-title">„Makes Work Fun“</h3>
-                <p id="first-place" class="result-text">🥇 John Doe - Software Engineer - 5.0</p>
-                <p id="second-place" class="result-text">🥈 Alice Burton - QA Tester - 4.7</p>
+                <p id="first-place" class="result-text">🥇</p>
+                <p id="second-place" class="result-text">🥈</p>
                 <p id="third-place" class="result-text">🥉</p>
                 <div class="generate-btn-container" id="generate-btn-container">
                     <button class="generate-btn" id="generate-btn">Generate Certificate🎓</button>
@@ -109,16 +100,16 @@
     <section class="top-voters-section" id="top-voters-section">
         <h3 class="top-voters-title" id="top-voters-title">TOP-3 Voters</h3>
         <div class="top-voters-container" id="top-voters-container">
-            <div class="top-voter" id="top-voter-1">🥇John</div>
-            <div class="top-voter" id="top-voter-2">🥈Alice</div>
-            <div class="top-voter" id="top-voter-3">🥉Jack</div>
+            <div class="top-voter" id="top-voter-1">🥇</div>
+            <div class="top-voter" id="top-voter-2">🥈</div>
+            <div class="top-voter" id="top-voter-3">🥉</div>
         </div>
     </section>
 
     <section class="mvp-section" id="mvp-section">
         <h3 class="mvp-title" id="mvp-title">The All-Time Champion Colleague, The MVP 🏆</h3>
         <div id="mvp" class="mvp-card">
-            <p class="mvp-text" id="mvp-text">IVAN MITKOVSKI - SOFTWARE ENGINEER - 5.0</p>
+            <p class="mvp-text" id="mvp-text"></p>
             <button class="generate-btn" id="generate-mvp-btn">Generate Certificate🏆</button>
         </div>
     </section>
