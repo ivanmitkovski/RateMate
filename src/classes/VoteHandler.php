@@ -62,4 +62,3 @@ class VoteHandler
         return $this->vote_status;
     }
 }
-?>
