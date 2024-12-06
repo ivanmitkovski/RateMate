@@ -103,99 +103,98 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit-vote'])) {
     <section class="results-section" id="results-section">
         <h2 class="results-title" id="results-title">Winners by Category</h2>
         <div class="results-container" id="results-container">
-            <div class="results-container" id="results-container">
-                <!-- "Makes Work Fun" Card -->
-                <div id="makes-work-fun" class="result-card">
-                    <h3 class="result-title" id="makes-work-fun-title">„Makes Work Fun“</h3>
-                    <?php
-                    $category = 1;
-                    $winners = $vote->getCategoryWinners($category);
-                    ?>
-                    <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
+            <!-- "Makes Work Fun" Card -->
+            <div id="makes-work-fun" class="result-card">
+                <h3 class="result-title" id="makes-work-fun-title">„Makes Work Fun“</h3>
+                <?php
+                $category = 1;
+                $winners = $vote->getCategoryWinners($category);
+                ?>
+                <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
 
-                    <p id="first-place-makes-work-fun" class="result-text">
-                        <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
-                    </p>
-                    <p id="second-place-makes-work-fun" class="result-text">
-                        <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
-                    </p>
-                    <p id="third-place-makes-work-fun" class="result-text">
-                        <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
-                    </p>
-                    <div class="generate-btn-container" id="generate-btn-container">
-                        <button class="generate-btn" id="generate-btn-makes-work-fun" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
-                    </div>
-                </div>
-
-                <!-- "Team Player" Card -->
-                <div id="team-player" class="result-card">
-                    <h3 class="result-title" id="team-player-title">„Team Player“</h3>
-                    <?php
-                    $category = 2;
-                    $winners = $vote->getCategoryWinners($category);
-                    ?>
-                    <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
-
-                    <p id="first-place-team" class="result-text">
-                        <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
-                    </p>
-                    <p id="second-place-team" class="result-text">
-                        <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
-                    </p>
-                    <p id="third-place-team" class="result-text">
-                        <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
-                    </p>
-                    <div class="generate-btn-container" id="generate-btn-team">
-                        <button class="generate-btn" id="generate-btn-team" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
-                    </div>
-                </div>
-
-                <!-- "Culture Champion" Card -->
-                <div id="culture-champion" class="result-card">
-                    <h3 class="result-title" id="culture-champion-title">„Culture Champion”</h3>
-                    <?php
-                    $category = 3;
-                    $winners = $vote->getCategoryWinners($category);
-                    ?>
-                    <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
-
-                    <p id="first-place-culture" class="result-text">
-                        <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
-                    </p>
-                    <p id="second-place-culture" class="result-text">
-                        <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
-                    </p>
-                    <p id="third-place-culture" class="result-text">
-                        <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
-                    </p>
-                    <div class="generate-btn-container" id="generate-btn-culture">
-                        <button class="generate-btn" id="generate-btn-culture" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
-                    </div>
-                </div>
-
-                <!-- "Difference Maker" Card -->
-                <div id="difference-maker" class="result-card">
-                    <h3 class="result-title" id="difference-maker-title">„Difference Maker“</h3>
-                    <?php
-                    $category = 4;
-                    $winners = $vote->getCategoryWinners($category);
-                    ?>
-                    <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
-
-                    <p id="first-place-difference-maker" class="result-text">
-                        <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
-                    </p>
-                    <p id="second-place-difference-maker" class="result-text">
-                        <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
-                    </p>
-                    <p id="third-place-difference-maker" class="result-text">
-                        <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
-                    </p>
-                    <div class="generate-btn-container" id="generate-btn-diff">
-                        <button class="generate-btn" id="generate-btn-diff" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
-                    </div>
+                <p id="first-place-makes-work-fun" class="result-text">
+                    <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
+                </p>
+                <p id="second-place-makes-work-fun" class="result-text">
+                    <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
+                </p>
+                <p id="third-place-makes-work-fun" class="result-text">
+                    <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
+                </p>
+                <div class="generate-btn-container" id="generate-btn-container">
+                    <button class="generate-btn" id="generate-btn-makes-work-fun" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
                 </div>
             </div>
+
+            <!-- "Team Player" Card -->
+            <div id="team-player" class="result-card">
+                <h3 class="result-title" id="team-player-title">„Team Player“</h3>
+                <?php
+                $category = 2;
+                $winners = $vote->getCategoryWinners($category);
+                ?>
+                <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
+
+                <p id="first-place-team" class="result-text">
+                    <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
+                </p>
+                <p id="second-place-team" class="result-text">
+                    <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
+                </p>
+                <p id="third-place-team" class="result-text">
+                    <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
+                </p>
+                <div class="generate-btn-container" id="generate-btn-team">
+                    <button class="generate-btn" id="generate-btn-team" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
+                </div>
+            </div>
+
+            <!-- "Culture Champion" Card -->
+            <div id="culture-champion" class="result-card">
+                <h3 class="result-title" id="culture-champion-title">„Culture Champion”</h3>
+                <?php
+                $category = 3;
+                $winners = $vote->getCategoryWinners($category);
+                ?>
+                <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
+
+                <p id="first-place-culture" class="result-text">
+                    <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
+                </p>
+                <p id="second-place-culture" class="result-text">
+                    <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
+                </p>
+                <p id="third-place-culture" class="result-text">
+                    <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
+                </p>
+                <div class="generate-btn-container" id="generate-btn-culture">
+                    <button class="generate-btn" id="generate-btn-culture" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
+                </div>
+            </div>
+
+            <!-- "Difference Maker" Card -->
+            <div id="difference-maker" class="result-card">
+                <h3 class="result-title" id="difference-maker-title">„Difference Maker“</h3>
+                <?php
+                $category = 4;
+                $winners = $vote->getCategoryWinners($category);
+                ?>
+                <span class='winner-data' data-name='<?php echo $winners[0]['full_name']; ?>' data-title='<?php echo $winners[0]['job_title']; ?>' data-rating='<?php echo round($winners[0]['average_rating'], 1); ?>'></span>
+
+                <p id="first-place-difference-maker" class="result-text">
+                    <?php echo isset($winners[0]) ? '🥇 ' . $winners[0]['full_name'] . " - " . $winners[0]['job_title'] . " - " . round($winners[0]['average_rating'], 1) : '🥇 No votes yet'; ?>
+                </p>
+                <p id="second-place-difference-maker" class="result-text">
+                    <?php echo isset($winners[1]) ? '🥈 ' . $winners[1]['full_name'] . " - " . $winners[1]['job_title'] . " - " . round($winners[1]['average_rating'], 1) : '🥈 No votes yet'; ?>
+                </p>
+                <p id="third-place-difference-maker" class="result-text">
+                    <?php echo isset($winners[2]) ? '🥉 ' . $winners[2]['full_name'] . " - " . $winners[2]['job_title'] . " - " . round($winners[2]['average_rating'], 1) : '🥉 No votes yet'; ?>
+                </p>
+                <div class="generate-btn-container" id="generate-btn-diff">
+                    <button class="generate-btn" id="generate-btn-diff" <?php echo (empty($winners[0])) ? 'disabled' : ''; ?>>Generate Certificate🎓</button>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 

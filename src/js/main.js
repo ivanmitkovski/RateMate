@@ -1,9 +1,10 @@
 $(document).ready(function () {
   function generateMVP() {
     let mvpData = $("#mvp-data").text();
-    if (mvpData === "No MVP data available") {
+    if (!mvpData || mvpData === "No MVP data available") {
       alert("No MVP data available");
-      return;
+      $("#generate-mvp-btn").attr("disabled", true);
+      return; // Prevent further execution if no MVP data is available
     }
 
     let [name, jobTitle, rating] = mvpData.split("|");
@@ -142,4 +143,9 @@ $(document).ready(function () {
   checkCategoryVotes("team-player");
   checkCategoryVotes("culture-champion");
   checkCategoryVotes("difference-maker");
+
+  let mvpData = $("#mvp-data").text();
+  if (!mvpData || mvpData === "No MVP data available") {
+    $("#generate-mvp-btn").attr("disabled", true);
+  }
 });
