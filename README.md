@@ -26,3 +26,9 @@
    git clone https://github.com/ivanmitkovski/RateMate.git
    cd RateMate
 2. **Open readme folder to get the setup MySQL Queries and review the Database Design**
+
+3. Update the username and password propertis inside the Database.php located src/classes/Database.php
+
+4. **Copy and paste the setup queries in your DBMS**
+
+5. **Run the queries to populate the Database**
