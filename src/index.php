@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit-vote'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js" defer></script>
+    <script src="js/quotes.js" defer></script>
     <link rel="icon" type="image/x-icon" href="../imgs/star-icon.png">
     <link href="./styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit-vote'])) {
 <body class="font-main">
     <nav class="navbar">
         <p class="logo" href="./index.php" id="logo">RateMate⭐</p>
-        <h2 class="tagline" id="tagline">„Rate Your Colleagues, with Ease!🪄“</h2>
+        <h2 class="tagline" id="tagline"></h2>
     </nav>
 
     <section class="form-section" id="form-section">
