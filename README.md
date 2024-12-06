@@ -16,7 +16,7 @@
 - Displays results and identifies the TOP 3 active voters.
 - Generates certificates for the winners.
 - Built with **PHP OOP**, **JavaScript (jQuery)**, and a **MySQL** database.
-
+- Fetch and print data from the Air Quality Index API based on your browser's location (JavaScript Asynchronous Code).
 ## Installation
 
 ### Setup Instructions:
